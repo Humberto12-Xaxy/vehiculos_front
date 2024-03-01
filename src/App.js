@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import MapView from './components/MapView';
+import React from "react";
+import Login from './components/login';
+import useToken from './components/useToken';
+import useID from './components/useID';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const { token, setToken } = useToken();
+  const { id, setID } = useID();
+
+  if (!token) {
+    return <Login setToken = {setToken} setID = {setID} />
+  }
+
+  else {
+    return (
+
+      <MapView data = { [token, id] }/>
+
+    );
+  }
 }
 
 export default App;
