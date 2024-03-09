@@ -1,7 +1,7 @@
 import './App.css';
 import MapView from './components/MapView';
 import React from "react";
-import Login from './components/login';
+import { Login } from './components/login.tsx';
 import useToken from './components/useToken';
 import useID from './components/useID';
 
