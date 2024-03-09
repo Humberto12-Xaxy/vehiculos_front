@@ -18,6 +18,7 @@ const validationSchema = yup.object({
         .min(4, 'Password should be of minimum 4 characters length')
         .required('Password is required'),
 });
+
 type loginType = {
     username: string,
     lastname: string,
@@ -25,17 +26,6 @@ type loginType = {
 };
 
 export const Login = ({ setToken, setID }) => {
-
-    // const handleSubmit = async e => {
-    //     e.preventDefault();
-    //     const token = await login({
-    //         username,
-    //         password
-    //     });
-    //     console.log(token.data.user.id);
-    //     setToken(token.data.token);
-    //     setID(token.data.user.id);
-    // }
 
     const formik = useFormik<loginType>({
         initialValues: {
